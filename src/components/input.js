@@ -1,22 +1,15 @@
 import React from 'react';
 
-import Clue from './clueoutput';
-import Form from './importform';
+import Clue from './clue';
+import Form from './inputform';
 
 export default function Input(props) {
-  const { attempts, guessCount } = props;
-
-  onSubmit(event) {
-        event.preventDefault();
-        const value = this.input.value;
-        this.props.addGuess(value);
-        this.input.value = '';
-    }
+  const { clue, guessCount } = props;
 
   return (
     <section aria-label="Guess Input" aria-describedby="clue">
       <Clue clue={clue} guessCount={guessCount} />
-      <Form />
+      <Form submitGuess={guess => props.submitGuess(guess)}/>
     </section>
   );
 }

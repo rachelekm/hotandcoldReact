@@ -1,11 +1,10 @@
 import React from 'react';
-
 import Header from './header';
 import Input from './input';
 import Output from './output';
 
 
-export default class Game extends React.Component {
+export default class GuessGame extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -63,7 +62,7 @@ export default class Game extends React.Component {
             clue={clue}
             guessCount={guessCount}
             submitGuess={num => this.newGuess(num)} />
-          <Output attempts={attempts} />
+          <Output attempts={this.state.attempts} />
         </main>
       </div>
     );
